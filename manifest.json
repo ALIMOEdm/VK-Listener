@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+
+  "name": "VK listener",
+  "description": "This extension shows a Google Image search result for the current page",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js" : ["jquery2.js", "lib/jquery.jgrowl.min.js", "myscript.js" ],
+      "css" : ["lib/jquery.jgrowl.min.css"]
+    }
+  ],
+  "background": {
+    "scripts": ["jquery2.js", "lib/underscore.js", "bootstrap.min.js",
+        "dictionary.js", "model.js", "vk/user.js", 
+        "popup.js",  "alarm.js"],
+    "persistent": false
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "webNavigation",
+    "http://*/*",
+    "https://*/*",
+    "alarms",
+    "notifications",
+    "storage",
+    "history",
+    "unlimitedStorage",
+    "background",
+    "management"
+  ]
+}
